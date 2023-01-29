@@ -82,6 +82,14 @@ $(function () {
     arrows: false,
     pauseOnFocus: false,
     pauseOnHover: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   })
 
   // メニュー
@@ -89,7 +97,7 @@ $(function () {
     infinite: true, //無限ループ
     autoplay: true, //自動再生
     autoplaySpeed: 5000,
-    speed: 2000,
+    speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
     asNavFor:".p-menu__thumbnail",
@@ -100,7 +108,7 @@ $(function () {
 
   // メニューサムネイル
   $(".p-menu__thumbnail").slick({
-    slidesToShow: 3,
+    slidesToShow: 5,
     asNavFor: ".p-menu__slider",
     focusOnSelect: true, // サムネイルクリックを有効化
   });

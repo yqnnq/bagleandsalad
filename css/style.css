@@ -2,11 +2,13 @@
 
 
 body {
-  font-family: 'Cormorant Infant', "游明朝", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", serif;
   font-family: 'Josefin Sans', "游明朝", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", sans-serif;
+  font-family: 'Oleo Script',"游明朝", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", cursive;
   font-size: 13px;
   font-style: normal;
-  color: #666;
+  /* color: #666; */
+  color: #202f55;
+  background-color: #fffbf0;
   line-height: 1;
 }
 
@@ -114,8 +116,8 @@ header
 
 .l-header__c a h1{
   font-size: 30px;
-  letter-spacing: .2em;
-  color:#666;
+  letter-spacing: .15em;
+  color: #202f55;
 }
 
 .l-header__r{
@@ -178,6 +180,7 @@ gnav
   top: -100%;
   width: 100%;
   height: 100vh;
+  color: #fffbf0;
   background-color: #E8B87E;
   transition: all .3s;
   overflow-y: scroll;
@@ -278,6 +281,7 @@ gnav
   position: relative;
   display: inline-block;
   font-size: 24px;
+  letter-spacing: .1em;
 }
 
 .p-gnav__list li a::after {
@@ -287,7 +291,7 @@ gnav
   left: 0px;
   width: 100%;
   height: 2px;
-  background: #fff;
+  background: #fffbf0;
   transform: scaleX(0);
   transform-origin: right top;
   transition: transform .5s;
@@ -303,7 +307,7 @@ gnav
 }
 
 .l-header.active .p-gnav__btn span{
-  background-color: #666;
+  background-color: #202f55;
 }
 
 @media screen and (max-width: 768px) {
@@ -462,7 +466,6 @@ about
 
 ==========================*/
 .p-about{
-  background-color: #fdf5e6;
   padding-top: 20%;
 }
 
@@ -479,22 +482,25 @@ about
   line-height: 2;
 }
 
-.p-about__img1{
+.p-about__img01{
   position: absolute;
-  bottom: 35%;
-  right: 23%;
-  width: 30%;
-  max-width: 280px;
-  filter: grayscale(10%);
+  top: 5%;
+  bottom: 0;
+  right: -33vh;
+  z-index: -1;
 }
 
-.p-about__img2{
+.p-about__img02{
   position: absolute;
-  bottom: 30%;
-  right: -60px;
-  width: 35%;
-  max-width: 320px;
-  filter: grayscale(10%);
+  top: 10%;
+  bottom: 0;
+  right: -13vh;
+  z-index: -1;
+}
+
+.p-about__img01 img,
+.p-about__img02 img{
+  transform: rotate(90deg);
 }
 
 @media screen and (max-width: 768px) {
@@ -505,19 +511,26 @@ about
   .p-about__inner{
     margin: 0;
     padding-top: 60px;
-    height: 550px;
+    height: 500px;
   }
 
   .p-about__text{
     font-size: 14px;
   }
 
-  .p-about__img1{
-    bottom: 45%;
+  .p-about__img01{
+    top: -5%;
+    right: -40vh;
   }
 
-  .p-about__img2{
-    bottom: 40%;
+  .p-about__img02{
+    top: -5%;
+    right: -24vh;
+  }
+
+  .p-about__img01 img,
+  .p-about__img02 img{
+    width: 80%;
   }
 }
 
@@ -566,7 +579,7 @@ concept
 }
 
 .p-concept__wrapper.p-con1::before{
-  background-color: #fffdf5;
+  background-color: inherit;
 }
 
 .p-concept__wrapper.p-con2::before{
@@ -574,7 +587,7 @@ concept
 }
 
 .p-concept__wrapper.p-con3::before{
-  background-color: #f5deb3;
+  background-color: #ffaa00;
 }
 
 .p-concept__box{
@@ -593,6 +606,8 @@ concept
   width: calc(100% - 100px);
   margin: 0 50px;
   z-index: 1;
+  color: #ff8c00;
+  letter-spacing: .1em;
 }
 
 .p-concept__num{
@@ -601,7 +616,6 @@ concept
   left: 0;
   font-size: 30px;
   font-weight: 300;
-  letter-spacing: 2px;
 }
 
 .p-concept__title{
@@ -610,7 +624,6 @@ concept
   left: 40%;
   font-size: 30px;
   font-weight: 300;
-  letter-spacing: 2px;
   transition: all .6s .65s;
 }
 
@@ -711,6 +724,11 @@ concept
 }
 
 /* con3 */
+.p-con3,
+.p-con3 .p-concept__top{
+  color: #fffbf0;
+}
+
 .p-con3 .p-concept__img{
   width: 50%;
 }
@@ -838,7 +856,7 @@ menu
   margin: 0 80px;
 }
 
-.p-menu__slider{
+.p-menu__thum{
   width: 100%;
   margin: 0 auto;
 }
@@ -871,7 +889,7 @@ menu
 }
 
 .p-menu__text h3{
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 20px;
 }
 
@@ -1061,6 +1079,7 @@ menu
   height: 110px;
   margin: 1px 25px 1px 1px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .p-menu__thumbnail li:last-child{
@@ -1082,13 +1101,13 @@ menu
 }
 
 .p-menu__thumbnail .slick-current {
-  outline: 1px solid;
+  outline: 1px solid #ff8c00;
   border-radius: 50%;
 }
 
 .p-menu__thumbnail .slick-current img{
   transform: scale(1.2);
-  transition: all .5s;
+  transition: .5s ease-out;
 }
 
 @media screen and (max-width: 768px) {
@@ -1116,7 +1135,6 @@ access
 .p-access{
   width: 100%;
   max-width: 1600px;
-  background-color: #fff;
 }
 
 .p-access__inner{
@@ -1127,11 +1145,6 @@ access
 
 .p-access__inner h3{
   text-align: left;
-  /* position: absolute; */
-  /* top: -30px; */
-  /* right: 0; */
-  /* z-index: 1; */
-  /* margin-bottom: 0; */
 }
 
 .p-access__map{
@@ -1195,27 +1208,31 @@ access
 
 /* ========================
 
-slider
+visual
 
 ==========================*/
 .c-slider{
-  padding: 80px 0 150px 0;
+  padding-top: 80px;
 }
 
 .c-slider li{
   margin: 0 20px;
+  border: 1px solid #ff8c00;
   overflow: hidden;
   transition: all .5s;
 }
 
+.c-slider li img{
+  transition: all .5s ease-in-out ;
+}
+
 .c-slider li img:hover{
   transform: scale(1.1);
-  transition: all .5s;
 }
 
 @media screen and (max-width: 768px) {
   .c-slider{
-    padding: 80px 0 150px 0;
+    padding-bottom: 60px;
   }
 
   .c-slider li{
@@ -1228,29 +1245,17 @@ slider
 footer
 
 ==========================*/
-.c-wave {
-  position: absolute;
-  bottom: 150px;
-  width: 100%;
-  height: auto;
-}
-
-.c-wave svg path {
-  fill:#646d64;
-}
-
 .l-footer{
   position: relative;
   width: 100%;
-  height: 200px;
-  background-color: #646d64;
-  color: #fff;
+  background-color: #202f55;
+  color: #fffbf0;
+  margin-top: 120px;
+  padding:80px 0 20px 0;
 }
 
 .l-footer__menu{
-  position: absolute;
-  bottom: 40px;
-  left: 80px;
+  margin: 0 80px;
 }
 
 .l-footer__title{
@@ -1266,9 +1271,8 @@ footer
 }
 
 .l-footer__copyright{
-  position: absolute;
-  bottom: 25px;
-  width: 100%;
+  display: block;
+  margin-top: 40px;
   line-height: 2;
   text-align: center;
 }
@@ -1297,6 +1301,7 @@ footer
   font-size: 1rem;
   letter-spacing: 0.2em;
   line-height: 2;
+  color: #ff8c00;
   padding: 20px 0;
   text-align: center;
 }
@@ -1306,8 +1311,8 @@ footer
   display: inline-block;
   width: 20px;
   height: 20px;
-  border-top: 1px solid #fff;
-  border-right: 1px solid #fff;
+  border-top: 1px solid #ff8c00;
+  border-right: 1px solid #ff8c00;
   position: absolute;
   top: 10px;
   right: 18px;
@@ -1329,13 +1334,14 @@ footer
 }
 
 @media screen and (max-width: 768px) {
-  .c-wave {
-    top: -120px;
+  .l-footer{
+    margin-top: 80px;
+    padding-top:60px;
   }
 
   .l-footer__menu{
-    bottom: 60px;
-    left: 5%;
+    width: 90%;
+    margin: 0 auto;
   }
 
   .l-footer__title{
