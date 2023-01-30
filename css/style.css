@@ -913,6 +913,7 @@ concept
 
   .p-concept__main{
     flex-direction: column-reverse;
+    justify-content: center;
     padding-top: 60px;
   }
 
@@ -988,6 +989,7 @@ concept
 
   .p-con3 .p-concept__text{
     width: 100%;
+    margin: 0;
   }
 
   .img04{
