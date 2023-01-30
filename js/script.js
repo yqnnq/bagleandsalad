@@ -174,4 +174,11 @@ $(window).on('scroll', function () {
     }
   });
 
+    $('.c-parallax__cover').each(function(){
+  const $target = $(this).offset().top - 200;
+  if ($scroll >= $target - $windowH){
+    $('.c-parallax').addClass('active');
+    }
+  });
+
 });

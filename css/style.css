@@ -618,7 +618,12 @@ parallax
   position: fixed;
   top: 100px;
   left: 0;
+  opacity: 0;
   z-index: -1;
+}
+
+.c-parallax.active::before{
+  opacity: 1;
 }
 
 .c-parallax .c-content__title{
