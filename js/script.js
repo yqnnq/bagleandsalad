@@ -69,19 +69,19 @@ $(function () {
     slidesToScroll: 1,
     fade: true,
     arrows: false,
+    swipe: false,
   })
 
   // スライダー
-  $(".c-slider").slick({
+  $(".p-visual__slider").slick({
     autoplay: true,
     autoplaySpeed: 0,
     speed: 6000,
     cssEase: "linear",
     slidesToShow: 3,
-    swipe: false,
+    swipe: true,
     arrows: false,
-    pauseOnFocus: false,
-    pauseOnHover: false,
+    pauseOnHover:false,
     responsive: [
       {
         breakpoint: 768,
@@ -168,7 +168,7 @@ $(window).on('scroll', function () {
   });
 
   $('.c-fadeUp').each(function(){
-  const $target = $(this).offset().top + 200;
+  const $target = $(this).offset().top + 100;
   if ($scroll >= $target - $windowH){
     $(this).addClass('c-fadeUpIn');
     }

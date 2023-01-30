@@ -6,9 +6,7 @@ body {
   font-family: 'Oleo Script',"游明朝", "Yu Mincho", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", cursive;
   font-size: 13px;
   font-style: normal;
-  /* color: #666; */
   color: #202f55;
-  background-color: #fffbf0;
   line-height: 1;
 }
 
@@ -53,6 +51,7 @@ content
 .c-content{
   width: 100%;
   padding-top: 80px;
+  background-color: #fffbf0;
 }
 
 .c-content__title{
@@ -66,7 +65,6 @@ content
   width: 95%;
   max-width: 1200px;
   margin: 0 auto;
-  overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
@@ -171,6 +169,22 @@ header
   }
 }
 
+@media screen and (max-width: 640px) {
+  .l-header__l{
+    margin-right: 45px;
+  }
+
+  .l-header__c a h1{
+    font-size: 24px;
+  }
+
+  .l-header__sns{
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+  }
+}
+
 /* ========================
 
 gnav
@@ -185,12 +199,13 @@ gnav
   background-color: #E8B87E;
   transition: all .3s;
   overflow-y: scroll;
+  opacity: 0;
   z-index: 99;
 }
 
 .p-gnav.active{
   top: 0;
-  transition: all .3s;
+  opacity: 1;
 }
 
 .p-gnav__btn{
@@ -317,7 +332,7 @@ gnav
   }
 
   .p-gnav__inner h1{
-    font-size: 38px;
+    font-size: 34px;
   }
 
   .p-gnav__list{
@@ -332,7 +347,12 @@ gnav
     font-size: 22px;
   }
 }
-
+@media screen and (max-width: 640px) {
+  .p-gnav__btn{
+    width: 25px;
+    height: 25px;
+  }
+}
 
 /* ========================
 
@@ -463,17 +483,57 @@ mainVisual
 
 /* ========================
 
+visual
+
+==========================*/
+.p-visual{
+  padding-top: 15%;
+  background-color: #fffbf0;
+}
+
+.p-visual__slider{
+  padding-top: 80px;
+  z-index: 1;
+}
+
+.p-visual__slider li{
+  margin: 0 20px;
+  border: 1px solid #ff8c00;
+  overflow: hidden;
+  transition: all .5s;
+}
+
+.p-visual__slider li img{
+  transition: all .5s ease-in-out ;
+}
+
+.p-visual__slider li img:hover{
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .p-visual{
+    padding-top: 20%;
+  }
+
+  .p-visual__slider li{
+    margin: 0 10px;
+  }
+}
+
+
+/* ========================
+
 about
 
 ==========================*/
 .p-about{
-  padding-top: 20%;
+  overflow: hidden;
 }
 
 .p-about__inner{
   position: relative;
   margin: 0 80px;
-  padding-top: 80px;
   height: 600px;
 }
 
@@ -481,22 +541,19 @@ about
   position: relative;
   font-size: 16px;
   line-height: 2;
+  z-index: 1;
 }
 
 .p-about__img01{
   position: absolute;
-  top: 5%;
-  bottom: 0;
-  right: -33vh;
-  z-index: -1;
+  top: -100px;
+  right: -250px;
 }
 
 .p-about__img02{
   position: absolute;
-  top: 10%;
-  bottom: 0;
-  right: -13vh;
-  z-index: -1;
+  top: 0;
+  right: -90px;
 }
 
 .p-about__img01 img,
@@ -504,14 +561,13 @@ about
   transform: rotate(90deg);
 }
 
-@media screen and (max-width: 768px) {
-  .p-about{
-    padding-top: 30%;
-  }
+.p-about__img02 img{
+  width: 90%;
+}
 
+@media screen and (max-width: 768px) {
   .p-about__inner{
     margin: 0;
-    padding-top: 60px;
     height: 500px;
   }
 
@@ -520,21 +576,67 @@ about
   }
 
   .p-about__img01{
-    top: -5%;
-    right: -40vh;
+    top: -10vh;
+    right: -42vh;
   }
 
   .p-about__img02{
-    top: -5%;
-    right: -24vh;
+    top: 5vh;
+    right: -23vh;
   }
 
-  .p-about__img01 img,
+  .p-about__img01 img{
+    width: 75%;
+  }
+
   .p-about__img02 img{
-    width: 80%;
+    width: 70%;
   }
 }
 
+/* ========================
+
+parallax
+
+==========================*/
+.c-parallax {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-parallax::before{
+  background-image: url(../image/image1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  content: "";
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  z-index: -1;
+}
+
+.c-parallax .c-content__title{
+  color: #fff;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .c-parallax::before{
+    top: 80px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .c-parallax {
+    height: 30vh;
+  }
+}
 
 /* ========================
 
@@ -580,7 +682,7 @@ concept
 }
 
 .p-concept__wrapper.p-con1::before{
-  background-color: inherit;
+  background-color: #fffbf0;
 }
 
 .p-concept__wrapper.p-con2::before{
@@ -594,8 +696,6 @@ concept
 .p-concept__box{
   position: relative;
   width: 100%;
-  height: 100vh;
-  max-height: 700px;
   overflow: hidden;
 }
 
@@ -657,11 +757,11 @@ concept
   justify-content: space-between;
   align-items: flex-start;
   padding-top: 80px;
+  height: 100%;
 }
 
 .p-concept__img{
-  height: 100vh;
-  max-height: 700px;
+  height: 100%;
 }
 
 .p-concept__img img{
@@ -684,6 +784,10 @@ concept
 }
 
 /* con1 */
+.p-con1 .p-concept__box{
+  height: calc(100vh - 100px);
+}
+
 .p-con1 .p-concept__img{
   width: 50%;
 }
@@ -692,35 +796,40 @@ concept
   width: 50%;
 }
 
+.img01{
+  height: 100%;
+}
+
 /* con2 */
+.p-con2.p-concept__box{
+  height: calc(100vh - 180px);
+}
+
 .p-con2 .p-concept__main{
   flex-direction: row-reverse;
 }
 
 .p-con2 .p-concept__img{
   width: 60%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  /* position: relative; */
 }
 
 .p-con2 .p-concept__text{
   width: 40%;
 }
 
-.img01{
-  height: 100%;
-}
-
 .img02{
   width: 40%;
   height: 100%;
-  margin-top: 10%;
+  padding-top: 7%;
 }
 
 .img03{
   width: calc(60% - 5%);
+  height: 100%;
   margin-left: 5%;
   padding-bottom: 20px;
 }
@@ -731,8 +840,13 @@ concept
   color: #fffbf0;
 }
 
+.p-con3 .p-concept__box{
+  height: 100vh;
+}
+
 .p-con3 .p-concept__img{
   width: 50%;
+  padding-bottom: 20px;
 }
 
 .p-con3 .p-concept__img img{
@@ -745,7 +859,7 @@ concept
 
 .img04{
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -759,8 +873,9 @@ concept
     top: 200px;
   }
 
-  .p-concept__wrapper{
-    padding: 0 5%;
+  .p-concept__box{
+    width: 90%;
+    margin: 0 auto;
   }
 
   .p-concept__top{
@@ -810,9 +925,13 @@ concept
   }
 
   /* con1 */
+  .p-con1 .p-concept__box{
+    height: calc(100vh - 80px);
+  }
+
   .p-con1 .p-concept__img{
     width: 100%;
-    height: 60vh;
+    height: 55vh;
   }
 
   .p-con1 .p-concept__text{
@@ -820,6 +939,10 @@ concept
   }
 
   /* con2 */
+  .p-con2 .p-concept__box{
+    height: calc(100vh - 140px);
+  }
+
   .p-con2 .p-concept__main{
     flex-direction: column;
   }
@@ -831,10 +954,26 @@ concept
   .p-con2 .p-concept__text{
     position: absolute;
     left: 3%;
-    bottom: 16%;
-    width: 80%;
-    padding: 20px 30px;
-    background: #fff;
+    bottom: 20px;
+    width: 95%;
+    padding: 20px;
+    background: #fffbf0;
+  }
+
+  .img02{
+    position: absolute;
+    left: 0;
+    top: 84px;
+    width: 60%;
+    height: auto;
+  }
+
+  .img03{
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 60%;
+    height: auto;
   }
 
   /* con3 */
@@ -905,7 +1044,8 @@ menu
 
 @media screen and (max-width: 768px) {
   .p-menu__inner{
-    margin: 0;
+    width: 90%;
+    margin: 0 auto;
   }
 
   .p-menu__sliderinner{
@@ -923,7 +1063,7 @@ menu
   }
 
   .p-menu__text h3{
-    font-size: 16px;
+    font-size: 15px;
     margin-bottom: 10px;
   }
 
@@ -944,12 +1084,12 @@ menu
 }
 
 .p-menu__slider .prev-arrow {
-  left: -8%;
+  left: 0;
   animation: prevArrow 1.5s ease-out infinite;
 }
 
 .p-menu__slider .next-arrow {
-  right: -8%;
+  right: 0;
   animation: nexrArrow 1.5s ease-out infinite;
 }
 
@@ -988,7 +1128,7 @@ menu
 
 @keyframes nexrArrow {
   0% {
-    right: -8%;
+    right: 0;
     opacity: 0;
   }
 
@@ -997,13 +1137,13 @@ menu
   }
 
   100% {
-    right: -10%;
+    right: -5%;
     opacity: 0;
   }
 }
 @keyframes prevArrow {
   0% {
-    left: -8%;
+    left: 0;
     opacity: 0;
   }
 
@@ -1012,7 +1152,7 @@ menu
   }
 
   100% {
-    left: -10%;
+    left: -5%;
     opacity: 0;
   }
 }
@@ -1022,18 +1162,10 @@ menu
     top: 45%;
   }
 
-  .p-menu__slider .prev-arrow {
-    left: 0;
-  }
-
-  .p-menu__slider .next-arrow {
-    right: 0;
-  }
-
   .slick-arrow.prev-arrow::after,
   .slick-arrow.next-arrow::after {
-    width: 70px;
-    height: 13px;
+    width: 60px;
+    height: 12px;
   }
 
   .p-menu__slider .prev-arrow span,
@@ -1044,7 +1176,7 @@ menu
 
   @keyframes nexrArrow {
     0% {
-      right: 2%;
+      right: 1%;
       opacity: 0;
     }
 
@@ -1059,7 +1191,7 @@ menu
   }
   @keyframes prevArrow {
     0% {
-      left: 2%;
+      left: 1%;
       opacity: 0;
     }
 
@@ -1077,7 +1209,7 @@ menu
 /* thumbnail */
 .p-menu__thumbnail{
   display: block;
-  margin: 40px auto;
+  padding: 40px 0;
 }
 
 .p-menu__thumbnail li{
@@ -1107,7 +1239,7 @@ menu
 }
 
 .p-menu__thumbnail .slick-current {
-  outline: 1px solid #ff8c00;
+  border: 1px solid #ff8c00;
   border-radius: 50%;
 }
 
@@ -1118,7 +1250,7 @@ menu
 
 @media screen and (max-width: 768px) {
   .p-menu__thumbnail{
-    margin: 20px auto;
+    padding: 20px 0;
   }
 
   .p-menu__thumbnail li{
@@ -1141,6 +1273,7 @@ access
 .p-access{
   width: 100%;
   max-width: 1600px;
+  padding-bottom: 120px;
 }
 
 .p-access__inner{
@@ -1187,6 +1320,10 @@ access
 }
 
 @media screen and (max-width: 768px) {
+  .p-access{
+    padding-bottom: 80px;
+  }
+
   .p-access__inner{
     width: 90%;
     margin: 0 auto;
@@ -1214,40 +1351,6 @@ access
 
 /* ========================
 
-visual
-
-==========================*/
-.c-slider{
-  padding-top: 80px;
-}
-
-.c-slider li{
-  margin: 0 20px;
-  border: 1px solid #ff8c00;
-  overflow: hidden;
-  transition: all .5s;
-}
-
-.c-slider li img{
-  transition: all .5s ease-in-out ;
-}
-
-.c-slider li img:hover{
-  transform: scale(1.1);
-}
-
-@media screen and (max-width: 768px) {
-  .c-slider{
-    padding-bottom: 60px;
-  }
-
-  .c-slider li{
-    margin: 0 10px;
-  }
-}
-
-/* ========================
-
 footer
 
 ==========================*/
@@ -1256,7 +1359,6 @@ footer
   width: 100%;
   background-color: #202f55;
   color: #fffbf0;
-  margin-top: 120px;
   padding:80px 0 20px 0;
 }
 
@@ -1341,7 +1443,6 @@ footer
 
 @media screen and (max-width: 768px) {
   .l-footer{
-    margin-top: 80px;
     padding-top:60px;
   }
 
@@ -1380,29 +1481,6 @@ footer
 }
 
 
-/* ========================
-
-parallax
-
-==========================*/
-.c-parallax {
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  width: 100%;
-  height: 50vh;
-  background-image: url(../image/image1.jpg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.c-parallax .c-content__title{
-  color: #fff;
-  margin: 0;
-}
-
 
 /* ========================
 
@@ -1428,7 +1506,7 @@ animation
 
 .c-fadeUp {
   opacity: 0;
-  transform: translate(0, 100px) scale(.9, .9) skew(1deg, -1deg);
+  transform: translate(0, 50px) scale(.9, .9) skew(1deg, -1deg);
   transition: all 1s ease-out;
 }
 
