@@ -1590,7 +1590,9 @@ loading
 body{
   background-color: #ff8c00;
 }
-
+body.appear{
+  background-color: #fff;
+}
 header,
 main,
 footer{
