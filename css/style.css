@@ -62,8 +62,8 @@ content
 }
 
 .c-content__wrapper{
-  width: 95%;
-  max-width: 1200px;
+  /* width: 95%; */
+  max-width: 1260px;
   margin: 0 auto;
 }
 
@@ -594,6 +594,25 @@ about
   }
 }
 
+@media screen and (max-width: 640px) {
+  .p-about__img01{
+    right: -48vh;
+  }
+
+  .p-about__img02{
+    right: -27vh;
+  }
+
+  .p-about__img01 img{
+    width: 70%;
+  }
+
+  .p-about__img02 img{
+    width: 65%;
+  }
+}
+
+
 /* ========================
 
 parallax
@@ -663,7 +682,6 @@ concept
 
 .p-concept {
   width: 100%;
-  max-width: 1600px;
 }
 
 .p-concept__wrapper{
@@ -780,7 +798,7 @@ concept
   margin-top: 10%;
   font-size: 16px;
   letter-spacing: .15em;
-  line-height: 2;
+  line-height: 1.6;
 }
 
 .p-concept__text p{
@@ -1008,8 +1026,8 @@ menu
   margin: 0 80px;
 }
 
-.p-menu__thum{
-  width: 100%;
+.p-menu__slider{
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -1020,10 +1038,11 @@ menu
 .p-menu__sliderinner{
   display: flex !important;
   justify-content: center;
+  align-items: center;
 }
 
 .p-menu__img {
-  width: 70%;
+  width: 60%;
   height: auto;
 }
 
@@ -1034,8 +1053,8 @@ menu
 }
 
 .p-menu__text {
-  width: 30%;
-  margin: 50px 0 0 30px;
+  width: 40%;
+  margin-left: 30px;
   letter-spacing: .05em;
   line-height: 1.5;
 }
@@ -1053,6 +1072,10 @@ menu
   .p-menu__inner{
     width: 90%;
     margin: 0 auto;
+  }
+
+  .p-menu__slider{
+    width: 100%;
   }
 
   .p-menu__sliderinner{
@@ -1222,9 +1245,10 @@ menu
 .p-menu__thumbnail li{
   width: 110px !important;
   height: 110px;
-  margin: 1px 25px 1px 1px;
+  margin-right: 25px;
   overflow: hidden;
   cursor: pointer;
+  border-radius: 50%;
 }
 
 .p-menu__thumbnail li:last-child{
@@ -1247,12 +1271,11 @@ menu
 
 .p-menu__thumbnail .slick-current {
   border: 1px solid #ff8c00;
-  border-radius: 50%;
 }
 
 .p-menu__thumbnail .slick-current img{
   transform: scale(1.2);
-  transition: .5s ease-out;
+  transition: transform .5s ease-out;
 }
 
 @media screen and (max-width: 768px) {
@@ -1263,7 +1286,7 @@ menu
   .p-menu__thumbnail li{
     width: 60px !important;
     height: 60px;
-    margin: 1px 15px 1px 1px;
+    margin-right: 15px;
   }
 
   .p-menu__thumbnail .slick-current img{
@@ -1279,7 +1302,7 @@ access
 ==========================*/
 .p-access{
   width: 100%;
-  max-width: 1600px;
+  /* max-width: 1600px; */
   padding-bottom: 120px;
 }
 
@@ -1481,12 +1504,6 @@ footer
   }
 }
 
-@media screen and (max-width: 588px) {
-  .c-wave {
-    top: -100px;
-  }
-}
-
 
 
 /* ========================
@@ -1531,4 +1548,128 @@ animation
 .c-fadeIn.active{
   opacity: 1;
   transform: translateY(0);
+}
+
+
+/* ========================
+
+loading
+
+==========================*/
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background:#ff8c00;
+  text-align:center;
+}
+
+.loading__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: loading 4s linear infinite;
+}
+
+.loading__img img {
+  width: 40%;
+}
+
+@keyframes loading{
+  0%{
+    transform: translate(-50%, -50%) rotate(0);
+  }
+
+  100%{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+body{
+  background-color: #ff8c00;
+}
+
+header,
+main,
+footer{
+  opacity: 0;
+}
+
+body.appear header,
+body.appear main,
+body.appear footer{
+  opacity: 1;
+}
+
+.splashbg1,
+.splashbg2{
+  display: none;
+}
+
+body.appear .splashbg1,
+body.appear .splashbg2{
+	display:block;
+}
+
+body.appear .splashbg1{
+	animation-name:PageAnime;
+	animation-duration:1.2s;
+	animation-timing-function:ease-in-out;
+	animation-fill-mode:forwards;
+  content: "";
+  position:fixed;
+	z-index: 999;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+	left:50%;
+  transform: scaleX(1);
+  background-color: #ff8c00;
+}
+
+body.appear .splashbg2{
+	animation-name:PageAnime2;
+	animation-duration:1.2s;
+	animation-timing-function:ease-in-out;
+	animation-fill-mode:forwards;
+  content: "";
+  position:fixed;
+	z-index: 999;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+	right:50%;
+  transform: scaleX(1);
+  background-color: #ff8c00;
+}
+
+@keyframes PageAnime{
+	0% {
+		transform-origin:left;
+		transform:scaleX(1);
+	}
+	50% {
+		transform-origin:right;
+	}
+	100% {
+		transform-origin:right;
+		transform:scaleX(0);
+	}
+}
+
+@keyframes PageAnime2{
+	0% {
+		transform-origin:right;
+		transform:scaleX(1);
+	}
+
+	50% {
+		transform-origin:left;
+	}
+	100% {
+		transform-origin:left;
+		transform:scaleX(0);
+	}
 }
